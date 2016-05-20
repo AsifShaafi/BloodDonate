@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Blood Donors BD</string>
+    <string name="verification_note">A Verification Code Will be Sent to Your Number.It Will be Needed for Registration.</string>
+    <string name="register">Register</string>
+    <string name="search_string">Search</string>
+    <string name="enter_phn_number">Enter Your Phone Number:</string>
+    <string name="num_start">+880</string>
+    <string name="phn_num_hint">Phone Number</string>
+    <string name="last_name">Last Name:</string>
+    <string name="first_name">First Name</string>
+    <string name="age_text">Age:</string>
+    <string name="year_text">Years</string>
+    <string name="blood_grp_text">Blood Group:</string>
+    <string name="blood_grp_hint">EG: A+</string>
+    <string name="location_text">Location:</string>
+    <string name="city_name_text">City Name</string>
+    <string name="fitness_warning">I am physically fit</string>
+    <string name="done_text">Done</string>
+
+
+    <!--blood groups array!-->
+
+    <string-array name="bloodGrpArray">
+
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+
+    </string-array>
+
+    <!--location array !-->
+
+    <string-array name="locaionArray">
+        <item>Dhaka</item>
+        <item>Rangpur</item>
+        <item>Rajshahi</item>
+    </string-array>
+
+    <!--phone number array-->
+
+    <string-array name="phone_numbers">
+        <item>+88015</item>
+        <item>+88016</item>
+        <item>+88017</item>
+        <item>+88018</item>
+        <item>+88019</item>
+        <item>+88011</item>
+    </string-array>
+
+</resources>
