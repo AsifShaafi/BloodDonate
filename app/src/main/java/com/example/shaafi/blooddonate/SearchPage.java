@@ -19,15 +19,11 @@ import android.widget.Toast;
 public class SearchPage extends AppCompatActivity {
 
     public static String jsonString;
-    private ConnectivityManager connectivityManager;
-    private int NETWORK_STATUS = 1;
-
     public static String bloodType, location;
-
-
     AutoCompleteTextView etLocation;
     Spinner bloodSpinner;
-
+    private ConnectivityManager connectivityManager;
+    private int NETWORK_STATUS = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,11 +114,43 @@ public class SearchPage extends AppCompatActivity {
                 //searching and getting the data from the web as json
                 BackgroundTaskSearch backgroundTaskSearch = new BackgroundTaskSearch(this);
                 backgroundTaskSearch.execute(method, bloodType, location);
+
+//                OkHttpClient client = new OkHttpClient();
+//                RequestBody formBody = new FormBody.Builder()
+//                        .add("bloodType", bloodType)
+//                        .add("location", location)
+//                        .build();
+//
+//                Request request = new Request.Builder()
+//                        .url("http://www.androidtesting.tk/connect_blood_donation_fetch_data_2.php")
+//                        .post(formBody)
+//                        .build();
+//
+//                Call call = client.newCall(request);
+//
+//                call.enqueue(new Callback() {
+//                    @Override
+//                    public void onFailure(Call call, IOException e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onResponse(Call call, Response response) throws IOException {
+//                        final String json = response.body().string();
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                Toast.makeText(SearchPage.this, "json:" + json, Toast.LENGTH_SHORT).show();
+//                                SearchPage.jsonString = json;
+//                            }
+//                        });
+//                    }
+//                });
+
             }
             else{
                 Toast.makeText(this, "Please connect to internet first", Toast.LENGTH_SHORT).show();
             }
-
         }
         else{
             etLocation.setError("Please Enter Area/Location");
