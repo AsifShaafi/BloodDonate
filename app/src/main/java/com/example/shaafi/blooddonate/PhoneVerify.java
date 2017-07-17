@@ -26,19 +26,16 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
 public class PhoneVerify extends AppCompatActivity {
-    private ConnectivityManager connectivityManager;
-    private int NETWORK_STATUS;
-
     public static String userMobile;
-    private String phnNum;
-
     EditText phoneNumber;
     Spinner phnOperator;
+    private ConnectivityManager connectivityManager;
+    private int NETWORK_STATUS;
+    private String phnNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +53,7 @@ public class PhoneVerify extends AppCompatActivity {
         phnOperator = (Spinner) findViewById(R.id.phn_spinner);
         //array adapter for phone operators
         String[] phnArray = getResources().getStringArray(R.array.phone_numbers);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, phnArray);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, phnArray);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
         phnOperator.setAdapter(adapter);
@@ -153,7 +150,7 @@ public class PhoneVerify extends AppCompatActivity {
     }
 
 
-    class BackgroundTaskCheckPhone extends AsyncTask<String, Void, String> {
+    private class BackgroundTaskCheckPhone extends AsyncTask<String, Void, String> {
         private static final String FORMAT = "UTF-8";
         Context ctx;
 
@@ -161,7 +158,7 @@ public class PhoneVerify extends AppCompatActivity {
 
         ProgressDialog progressDialog;
 
-        public BackgroundTaskCheckPhone(Context ctx) {
+        BackgroundTaskCheckPhone(Context ctx) {
             this.ctx = ctx;
         }
 
@@ -213,7 +210,7 @@ public class PhoneVerify extends AppCompatActivity {
 
                     while ((response = bufferedReader.readLine()) != null) {
 
-                        stringBuilder.append(response + "\n");
+                        stringBuilder.append(response).append("\n");
                     }
 
                     bufferedReader.close();
@@ -226,8 +223,6 @@ public class PhoneVerify extends AppCompatActivity {
 
                 } catch (java.net.SocketTimeoutException e) {
                     return "Connection time out";
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -247,9 +242,9 @@ public class PhoneVerify extends AppCompatActivity {
 
             if (s.equals("Connection time out") || s.equals("Sorry..could not Connect")) {
                 Toast.makeText(getBaseContext(), s, Toast.LENGTH_SHORT).show();
-            } else if (s.equals("found")) {
+            } else if (s.contains("found")) {
 
-                Toast.makeText(getBaseContext(), "This Number is already Registered", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "This Number is already Registered\n" + s, Toast.LENGTH_SHORT).show();
 
             } else {
 

@@ -23,6 +23,9 @@
     <string name="enter_first_name">Enter First Name</string>
     <string name="reenter_pass">Reenter Password</string>
     <string name="confirm_pass">Confirm Password:</string>
+    <string name="enter_the_verification_code">Enter The Verification Code:</string>
+    <string name="enter_0000_hint">Enter: 0000</string>
+    <string name="submit">submit</string>
 
 
     <!--blood groups array!-->

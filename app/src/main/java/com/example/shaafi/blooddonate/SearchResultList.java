@@ -36,7 +36,7 @@ public class SearchResultList extends AppCompatActivity {
         }
 
         listAdapter = new ListAdapter(this, R.layout.row_display);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.phone_numbers));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.phone_numbers));
 
         listView = (ListView) findViewById(R.id.SearchlistView);
         listView.setAdapter(listAdapter);
@@ -64,7 +64,7 @@ public class SearchResultList extends AppCompatActivity {
                 uLastName = JO.getString("lastname");
                 uAge = JO.getString("age");
                 uBlood = JO.getString("blood_type");
-                uPhone = JO.getString("mobile_no");
+                uPhone = "**********";
                 uLocation = JO.getString("location");
                 uActive = JO.getString("active");
 //                uLocation = "location";
